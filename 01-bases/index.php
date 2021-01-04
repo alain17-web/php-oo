@@ -41,5 +41,15 @@ echo '<br>Vaut aussi pour $a->valeur2<br>';
 echo $a->valeur2;
 var_dump($a,$b,$c);
 ?>
+<h3>Les constantes de classe sont écrites en UPPER_CASE avec le mot clef const</h3>
+<p>Elle sont toujours publiques et invariables</p>
+<p>On peut les appeler depuis une instance de classe (mauvaise paratique) grâce aux :: - echo $a::CONSTANTE_UNE;</p>
+<?php
+echo $a::CONSTANTE_UNE;
+?>
+<p>La bonne pratique est de l'appeler depuis la classe et non une de ses instances - echo MaPremiereClass::CONSTANTE_UNE;</p>
+<?php
+echo MaPremiereClass::CONSTANTE_UNE;
+?>
 </body>
 </html>

@@ -9,4 +9,8 @@ class MaPremiereClass
     // Attributs - équivalence aux variables, on y ajoute la visibilité - ici ils sont publics
     public $valeur1=5;
     public $valeur2,$valeur3,$valeur4;
+
+    // Constantes de classe - publiques, elles ne peuvent être modifiées et doivent avoir une valeur dès la création - UPPERCASE avec _ comme séparateurs
+    const CONSTANTE_UNE = "Valeur invariable";
+
 }
