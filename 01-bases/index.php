@@ -40,10 +40,11 @@ echo $c->valeur2;
 echo '<br>Vaut aussi pour $a->valeur2<br>';
 echo $a->valeur2;
 var_dump($a,$b,$c);
+
 ?>
 <h3>Les constantes de classe sont écrites en UPPER_CASE avec le mot clef const</h3>
 <p>Elle sont toujours publiques et invariables</p>
-<p>On peut les appeler depuis une instance de classe (mauvaise paratique) grâce aux :: - echo $a::CONSTANTE_UNE;</p>
+<p>On peut les appeler depuis une instance de classe (mauvaise pratique) grâce aux :: - echo $a::CONSTANTE_UNE;</p>
 <?php
 echo $a::CONSTANTE_UNE;
 ?>
@@ -51,5 +52,26 @@ echo $a::CONSTANTE_UNE;
 <?php
 echo MaPremiereClass::CONSTANTE_UNE;
 ?>
+<h3>Les méthodes: ce sont des fonctions/actions se trouvant dans la classe</h3>
+<code>public function AfficheValeur1() {
+    echo $this->valeur1;
+    }</code>
+<p> Méthode d'affichage
+    <?php
+   $a->AfficheValeur1();
+
+    ?>
+</p>
+<h3>Les méthodes: modification d'un attribut</h3>
+<code>public function setValeur1(int $param1){
+    $this->valeur1 = $param1;
+    }</code>
+<p>
+    <?php
+    $a->setValeur1(188.35);
+    $a->AfficheValeur1();
+
+    ?>
+</p>
 </body>
 </html>

@@ -13,4 +13,14 @@ class MaPremiereClass
     // Constantes de classe - publiques, elles ne peuvent être modifiées et doivent avoir une valeur dès la création - UPPERCASE avec _ comme séparateurs
     const CONSTANTE_UNE = "Valeur invariable";
 
+    // Méthodes - actions équivalentes à des fonctions, elles seront toujours locale (elle sont enfant de cette classe)
+    public function AfficheValeur1() {
+
+        // on va récupérer la $valeur1 de l'instance de la classe (nous avons du faire un new MaPremiereClass avant de pouvoir l'utiliser). $this représente l'instance de la classe
+        echo $this->valeur1;
+    }
+
+    public function setValeur1(int $param1){
+        $this->valeur1 = $param1;
+    }
 }
