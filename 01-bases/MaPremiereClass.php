@@ -10,6 +10,7 @@ class MaPremiereClass
     public $valeur1=5;
     public $valeur2,$valeur3,$valeur4;
 
+
     // Constantes de classe - publiques, elles ne peuvent être modifiées et doivent avoir une valeur dès la création - UPPERCASE avec _ comme séparateurs
     const CONSTANTE_UNE = "Valeur invariable";
 
@@ -23,4 +24,5 @@ class MaPremiereClass
     public function setValeur1(int $param1){
         $this->valeur1 = $param1;
     }
+
 }
