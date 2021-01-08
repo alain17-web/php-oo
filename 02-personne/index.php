@@ -15,6 +15,7 @@ require_once "Humain.php";
 <h2>Humain</h2>
 <p>Instanciations de 2 humains</p>
 <?php
+// les arguments sont passés en paramètre via le constructeur lors de l'instanciation de la classe (new Humain())
 $human1 = new Humain("Pitz","Michaël","1977-03-02");
 $human2 = new Humain("Antony","Audrey","hahahaharggggg ;-)");
 ?>
