@@ -7,7 +7,7 @@ class Vehicule
     protected string $model;
     protected string $marque;
     protected string $type;
-    protected int $annee;
+    protected $annee;
     // publique, peut être modifié/lu sans vérification en dehors de la classe (en cas d'instanciation)
     public $slogan = "Un slogan";
     // ne peut être modifié/lu sans vérification que dans la classe Vehicule

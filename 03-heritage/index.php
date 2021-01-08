@@ -30,6 +30,27 @@ require_once "Vehicule.php";
 <p><?php
     echo 'echo Vehicule::CREATEUR => '.Vehicule::CREATEUR;
     ?></p>
+<h4>Instanciation de Vehicule</h4>
+<p>Le constructeur (public function __constuct(){}) est appelé lors de l'instanciation de la classe Vehicule</p>
+<pre><code>public function __construct()
+    {
+    $this->setIdVehicule();
+        }</code></pre>
+<h4>setIdVehicule() est privé, on ne peut le modifier après la création</h4>
+<p>En effet il n'est appelé que depuis le constructeur, et on a utilisé la fonction PHP uniqid(), pour lui donner une valeur unique et non modifiable</p>
+<pre><code>private function setIdVehicule(): void
+    {
+    $this->idVehicule = uniqid();
+    }</code></pre>
+<h3>On utilise les getters pour afficher les attributs non publiques</h3>
+<p><?php
+    echo 'echo $vehiculeBasic1->getIdVehicule(); => '.$vehiculeBasic1->getIdVehicule();
+    ?></p>
+<p>On ne peut afficher que des attributs initialisés ou non null
+    <?php
+    //echo 'echo $vehiculeBasic1->getMarque(); => '.$vehiculeBasic1->getMarque();
+    // echo 'echo $vehiculeBasic1->getAnnee(); => '.$vehiculeBasic1->getAnnee();
+    ?></p>
 <pre><?php
     var_dump($vehiculeBasic1);
     ?></pre>
