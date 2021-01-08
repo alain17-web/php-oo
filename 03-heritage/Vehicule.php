@@ -20,6 +20,16 @@ class Vehicule
 
 
     // GETTERS
+
+    // Constructeur - Appelé lors de l'instanciation
+    /**
+     * Vehicule constructor.
+     */
+    public function __construct()
+    {
+
+    }
+
     /**
      * @return string
      */
