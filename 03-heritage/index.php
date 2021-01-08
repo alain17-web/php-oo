@@ -12,7 +12,8 @@ require_once "Vehicule.php";
 </head>
 <body>
 <h1>Des véhicules</h1>
-<h2>class Vehicule</h2>
+<p>Liés à la classe Vehicule.php</p>
+<h2><a href="./">class Vehicule</a> - <a href="index2.php">Enfants de Vehicule</a></h2>
 <p>Classe de base (parente) des autres classes</p>
 <p><?php
     $vehiculeBasic1 = new Vehicule();
@@ -51,8 +52,33 @@ require_once "Vehicule.php";
     //echo 'echo $vehiculeBasic1->getMarque(); => '.$vehiculeBasic1->getMarque();
     // echo 'echo $vehiculeBasic1->getAnnee(); => '.$vehiculeBasic1->getAnnee();
     ?></p>
+<h3>On utilise les setters pour modifier les attributs non publiques</h3>
+<pre><code>$vehiculeBasic2 = new Vehicule();
+$vehiculeBasic2->setAnnee(2020);
+$vehiculeBasic2->setType("Trottinette");
+$vehiculeBasic2->setMarque("MPMAN");
+$vehiculeBasic2->setModel("TR800");
+$vehiculeBasic2->setSlogan("La trottinette qui se la pète!");</code></pre>
+
+<?php
+$vehiculeBasic2 = new Vehicule();
+$vehiculeBasic2->setAnnee(2020);
+$vehiculeBasic2->setType("Trottinette");
+$vehiculeBasic2->setMarque("MPMAN");
+$vehiculeBasic2->setModel("TR800");
+$vehiculeBasic2->setSlogan("La trottinette qui se la pète!");
+?>
+<h4>Utilisation des getters pour récupérer les attributs de l'instance $vehiculeBasic2</h4>
+<pre><code>echo "Cet objet, créé par ".Vehicule::CREATEUR.",
+        est une {$vehiculeBasic2->getType()} de la marque {$vehiculeBasic2->getMarque()}
+        construite en {$vehiculeBasic2->getAnnee()} etc...";</code></pre>
+<p>
+<?php
+echo "Cet objet, créé par ".Vehicule::CREATEUR.", est une {$vehiculeBasic2->getType()} de la marque {$vehiculeBasic2->getMarque()} construite en {$vehiculeBasic2->getAnnee()} etc...";
+?>
+</p>
 <pre><?php
-    var_dump($vehiculeBasic1);
+    var_dump($vehiculeBasic1,$vehiculeBasic2);
     ?></pre>
 </body>
 </html>
