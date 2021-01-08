@@ -25,6 +25,11 @@ require_once "Vehicule.php";
     $vehiculeBasic1->slogan = "Un slogan personnalisé";
     echo '$vehiculeBasic1->slogan = ... ; puis echo $vehiculeBasic1->slogan => '.$vehiculeBasic1->slogan;
     ?></p>
+<h4>Notre constante est publique, on peut l'afficher</h4>
+<p>! Depuis PHP 7.1 les constantes peuvent être private ou protected, on l'affiche si elle est publique en utilisant NomDeLaClasse::CONSTANTE</p>
+<p><?php
+    echo 'echo Vehicule::CREATEUR => '.Vehicule::CREATEUR;
+    ?></p>
 <pre><?php
     var_dump($vehiculeBasic1);
     ?></pre>

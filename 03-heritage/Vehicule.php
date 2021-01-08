@@ -13,7 +13,7 @@ class Vehicule
     // ne peut être modifié/lu sans vérification que dans la classe Vehicule
     private string $idVehicule;
 
-    // Constantes (visibilité autre que public possible depuis PHP 7.1)
+    // Constantes (visibilité autre que public possible depuis PHP 7.1) - doit avoir une valeur dès sa création
     public const CREATEUR = "Pitz Michaël";
 
     // Méthodes
@@ -27,7 +27,8 @@ class Vehicule
      */
     public function __construct()
     {
-
+        // appel de la fonction private setIdVehicule(), pour qu'un id unique soit créé pour ce véhicule
+        $this->setIdVehicule();
     }
 
     /**
@@ -120,12 +121,13 @@ class Vehicule
         $this->slogan = $slogan;
     }
 
+    // méthodes personnalisées
     /**
-     * @param string $idVehicule
+     * On ne peut pas changer l'id du véhicule depuis l'extérieur, donc ceci n'est plus un vrai setter, on va changer sa visibilité en private
      */
-    public function setIdVehicule(string $idVehicule): void
+    private function setIdVehicule(): void
     {
-        $this->idVehicule = $idVehicule;
+        $this->idVehicule = uniqid();
     }
 
 
