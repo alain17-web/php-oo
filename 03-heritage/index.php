@@ -13,7 +13,7 @@ require_once "Vehicule.php";
 <body>
 <h1>Des véhicules</h1>
 <p>Liés à la classe Vehicule.php</p>
-<h2><a href="./">class Vehicule</a> - <a href="index2.php">Enfants de Vehicule</a></h2>
+<h2><a href="./">class Vehicule</a> - <a href="index2.php">Enfants de Vehicule: Voiture</a> - <a href="index3.php">Enfants de Vehicule : Velo</a></h2>
 <p>Classe de base (parente) des autres classes</p>
 <p><?php
     $vehiculeBasic1 = new Vehicule();
