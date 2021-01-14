@@ -16,7 +16,7 @@ require_once "Voiture.php";
 <p>Liés à la classe Vehicule.php</p>
 <h2><a href="./">class Vehicule</a> - <a href="index2.php">Enfants de Vehicule: Voiture</a> - <a href="index3.php">Enfants de Vehicule : Velo</a></h2>
 <h3>Exemple de la classe Voiture</h3>
-<p>Il faut la charger dans les dépendances (haut de cette page), L'extend permet de l'étendre de la classe Vehicule, elle hérite de ses attributs public ou protected, de ses constantes protected ou public et des ses méthodes public et protected</p><p>Si cette classe est vierge, elle héritera de l'entièreté de Vehicule sans altération.</p>
+<p>Il faut la charger dans les dépendances (haut de cette page), L'extends permet de l'étendre de la classe Vehicule, elle hérite de ses attributs public ou protected, de ses constantes protected ou public et des ses méthodes public et protected</p><p>Si cette classe est vierge, elle héritera de l'entièreté de Vehicule sans altération.</p>
 <pre><code>
 class Voiture extends Vehicule
 {
@@ -110,11 +110,31 @@ $voiture1 = new Voiture();
 
         // non défini de paramètres, on utilise un tableau, si il est vide, on ne fait rien
         if(!empty($tab)){
-            var_dump($tab);
+            // on va essayer d'hydraté notre objet => remplir ses attributs en utilisant des setters, et ce automatiquement
+            foreach($tab as $key => $value){
+                // création du nom du setter avec le nom de l'attribut attendu dans le tableaéu en tant que clef
+                $methodSetters = "set".ucfirst($key);
+                // existence du setter
+                if(method_exists($this,$methodSetters)){
+                    // utilisation du setter pour enregistrer la valeur dans un attribut
+                    $this->$methodSetters($value);
+                }else{
+                    echo $methodSetters."n'existe pas!";
+                }
+            }
+        }
         }</code></pre>
 <?php
-$voiture2 = new Voiture(["typeMoteur"=>"essence"])
+$voiture2 = new Voiture(["typeMoteur"=>"Essence","type"=>"Véhicule à moteur","model"=>"Fortwo","marque"=>"Smart","nbPortes"=>2,"annee"=>2019,"slogan"=>"La plus Smart des voitures !"])
 ?>
+<p>Notre Voiture 2:</p>
+<p><?= $voiture2->getIdVehicule() ?></p>
+<p><?= $voiture2->getType() ?></p>
+<p><?= $voiture2->getTypeMoteur()?></p>
+<p><?= $voiture2->getModel()?></p>
+<p><?= $voiture2->getMarque()?></p> ...
+<h4>On a ainsi hydraté notre voiture: utilisation des setters pour remplir les attribut</h4>
+<h5>Nous l'avons fait de manière automatisée sur un tableau</h5>
 <p>
 </p>
 <pre><?php var_dump($vehicule1,$voiture1,$voiture2);?></pre>
