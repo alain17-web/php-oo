@@ -4,14 +4,14 @@
 class Vehicule
 {
     // Attributs protégés (non modifiables/lisibles depuis l'extérieure de la classe, sauf depuis ses héritiers (class ... extends Vehicule)), on peut, si on ne met pas de valeur par défaut, typer l'attribut en définissant ce que l'on souhaite mettre dedans
-    protected string $model;
-    protected string $marque;
-    protected string $type;
+    protected  $model;
+    protected  $marque;
+    protected  $type;
     protected $annee;
     // publique, peut être modifié/lu sans vérification en dehors de la classe (en cas d'instanciation)
     public $slogan = "Un slogan";
     // ne peut être modifié/lu sans vérification que dans la classe Vehicule
-    private string $idVehicule;
+    private  $idVehicule;
 
     // Constantes (visibilité autre que public possible depuis PHP 7.1) - doit avoir une valeur dès sa création
     public const CREATEUR = "Pitz Michaël";

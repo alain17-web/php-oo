@@ -7,12 +7,12 @@ class Voiture extends Vehicule
 {
     // Attributs (fields)
     // ce qui est ajouté dans cette classe enfant de Vehicule, se rajoute simplement à ce que l'on a dans Vehicule
-    protected string $typeMoteur;
+    protected  $typeMoteur;
     protected $nbRoues=4;
-    protected int $nbPortes;
+    protected $nbPortes;
 
     // si on écrit un attribut se trouvant dans le parent, on l'ECRASE
-    protected string $type="Véhicule à moteur";
+    protected $type="Véhicule à moteur";
 
 
     // constructeur de Voiture, il ECRASE le constructeur de son parent, dans notre cas c'est un problème car la méthode setIdVehicule() est privée, donc accessible que depuis Vehicule;
