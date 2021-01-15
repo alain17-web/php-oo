@@ -28,10 +28,11 @@ require_once "Velo.php";
 <p>$a = new Velo(); => objet vide (à part l'id et les valeurs par défauts)</p>
 <p>$b = new Velo(["attributs1"=>"valeur1", ...]); => objet hydraté (tous ses Attributs sont remplis)</p>
 <p>Affichez les attributs de $b avec les getters</p>
+<<<<<<< HEAD
 <hr>
 
 <?php 
-$a = new Velo();
+/*$a = new Velo();
 ?>
 <h4>var_dump de $a</h4>
 <pre>
@@ -55,5 +56,13 @@ $b = new Velo(["marque"=>"BMX","genre"=>"VTT", "taille"=>"enfant", "nbreVitesses
 var_dump($b);
 ?>
 </pre>
+=======
+<p>
+    <?php
+    $a = new Velo();
+    ?>
+</p>
+<p><pre><?php var_dump($a); ?></pre></p>
+>>>>>>> dc490d0369e1af5eeafc95e46de3f4a7c9d4e9e2
 </body>
-</html>
+</html>*/

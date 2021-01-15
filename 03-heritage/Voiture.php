@@ -3,6 +3,7 @@
 /*
  * L'extend permet d'étendre une classe en partant d'une autre, elle hérite de ses attributs public ou protected, de ses constantes protected ou public et des ses méthodes public et protected
  */
+
 class Voiture extends Vehicule
 {
     // Attributs (fields)
