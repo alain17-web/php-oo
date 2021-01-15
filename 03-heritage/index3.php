@@ -28,6 +28,11 @@ require_once "Velo.php";
 <p>$a = new Velo(); => objet vide (à part l'id et les valeurs par défauts)</p>
 <p>$b = new Velo(["attributs1"=>"valeur1", ...]); => objet hydraté (tous ses Attributs sont remplis)</p>
 <p>Affichez les attributs de $b avec les getters</p>
-
+<p>
+    <?php
+    $a = new Velo();
+    ?>
+</p>
+<p><pre><?php var_dump($a); ?></pre></p>
 </body>
 </html>
