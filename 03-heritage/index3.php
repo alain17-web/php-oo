@@ -31,8 +31,30 @@ require_once "Velo.php";
 <p>
     <?php
     $a = new Velo();
+    $a->setColor("li"); // génère une erreur NOTICE
+    $a->setColor("Bleu"); // fonctionne
+
+    $b = new Velo([
+            "annee"=>2007,
+            "cadre"=>"Homme",
+            "color"=>"Vert",
+            "marque"=>"Décathlon",
+            "model"=>"Btwin",
+            "nbVitesse"=>7,
+            "slogan"=>"Chic et pas chers",
+            "type"=>"Urbain",
+    ])
     ?>
 </p>
-<p><pre><?php var_dump($a); ?></pre></p>
+<p>
+    <?="Model : {$b->getModel()}<br>
+    Marque : {$b->getMarque()}<br>
+    Année : {$b->getAnnee()}<br>
+    Slogan : {$b->getSlogan()}<br>
+    Type : {$b->getType()} | {$b->getTypeMaj()}<br>
+" ?>
+</p>
+
+<p><pre><?php var_dump($a,$b); ?></pre></p>
 </body>
 </html>

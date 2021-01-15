@@ -16,11 +16,19 @@ class Velo extends Vehicule
         // on récupère le parent car on en a besoin pour générer l'identifiant de l'objet Velo depuis Vehicule
         parent::__construct();
 
-        // utilisation des setters si une variable de type tableau est passée non vide au constructeur de cette classe
+        // utilisation des setters si une variable de type tableau est passée non vide au constructeur de cette classe - Appel de la classe hydrate()
+        if(!empty($tab)){
+            $this->hydrate($tab);
+        }
 
     }
 
-    // Création de l'hydratation avec accès protégé
+    // création d'un getter personnalisé lié aux $type
+    public function getTypeMaj(): string
+    {
+        // appel d'une méthode venant de la classe mère avec modification (ici en tout en majuscules)
+        return strtoupper(parent::getType());
+    }
 
 
     // getters (accessors) - toujours publiques - ils récupères les valeurs des attributs, règle de nommage: get - nom de l'attribut avec la première lettre mise en majuscule
@@ -41,11 +49,9 @@ class Velo extends Vehicule
         // les vérifications dans les setters ne sont que rarement suffisantes lors de la génération par un robot, on devra donc toujours protéger ces setters soi-même
         $lulu = (int) $lulu;
         if($lulu===0){
-            echo "Valeur incorrecte, int attendu";
-            exit();
+            trigger_error("Valeur incorrecte, int attendu",E_USER_NOTICE);
         }elseif ($lulu>12){
-            echo "Valeur incorrecte, 12 vitesses maximum";
-            exit();
+            trigger_error("Valeur incorrecte, 12 vitesses maximum",E_USER_NOTICE);
         }else {
             $this->nbVitesse = $lulu;
         }
@@ -60,8 +66,8 @@ class Velo extends Vehicule
         if($long>=3 && $long <=50) {
             $this->color = $color;
         }else{
-            echo "La Couleur doit avoir entre 2 et 50 caractères";
-            exit();
+            // création d'une erreur de type notice
+            trigger_error("La Couleur doit avoir entre 2 et 50 caractères",E_USER_NOTICE);
         }
     }
 

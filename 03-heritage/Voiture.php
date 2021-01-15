@@ -24,18 +24,7 @@ class Voiture extends Vehicule
 
         // ceci est propre au constructeur de voiture, pour pouvoir avoir un nombre non défini de paramètres, on utilise un tableau, si il est vide, on ne fait rien, si il est rempli
         if(!empty($tab)){
-            // on va essayer d'hydraté notre objet => remplir ses attributs en utilisant des setters, et ce automatiquement
-            foreach($tab as $key => $value){
-                // création du nom du setter avec le nom de l'attribut attendu dans le tableaéu en tant que clef
-                $methodSetters = "set".ucfirst($key);
-                // existence du setter
-                if(method_exists($this,$methodSetters)){
-                    // utilisation du setter pour enregistrer la valeur dans un attribut
-                    $this->$methodSetters($value);
-                }else{
-                    echo $methodSetters."n'existe pas!";
-                }
-            }
+            $this->hydrate($tab);
         }
 
     }
