@@ -1,7 +1,7 @@
 <?php
 
 
-class Vehicule
+class  Vehicule
 {
     // Attributs protégés (non modifiables/lisibles depuis l'extérieure de la classe, sauf depuis ses héritiers (class ... extends Vehicule)), on peut, si on ne met pas de valeur par défaut, typer l'attribut en définissant ce que l'on souhaite mettre dedans
     protected  $model;
@@ -29,6 +29,21 @@ class Vehicule
     {
         // appel de la fonction private setIdVehicule(), pour qu'un id unique soit créé pour ce véhicule
         $this->setIdVehicule();
+    }
+
+    // Création de l'hydratation avec accès protégé
+    protected function hydrate(Array $item): void
+    {
+        // tant qu'on a des éléments dans le tableau
+        foreach($item as $key => $value){
+            // création du nom du setter avec le nom de l'attribut (première lettre mise en majuscule avec ucfirst()) attendu dans le tableau en tant que clef
+            $methodSetters = "set".ucfirst($key);
+            // si le setter existe dans l'instance ($this, donc dans l'instance de cette classe y compris les parents, (classes mères))
+            if(method_exists($this,$methodSetters)){
+                // utilisation du setter pour enregistrer la valeur dans un attribut => $this->setModel("Clio");
+                $this->$methodSetters($value);
+            }
+        }
     }
 
     /**
