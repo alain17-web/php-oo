@@ -34,10 +34,13 @@ require_once "Velo.php";
 $a = new Velo();
 ?>
 <h4>var_dump de $a</h4>
+<pre>
 <?php 
 
 var_dump($a);
-
+?>
+</pre>
+<?php 
 $b = new Velo(["marque"=>"BMX","genre"=>"VTT", "taille"=>"enfant", "nbreVitesses"=>6])
 ?>
 <h4>Mon vélo B</h4>
@@ -47,8 +50,10 @@ $b = new Velo(["marque"=>"BMX","genre"=>"VTT", "taille"=>"enfant", "nbreVitesses
 <p>Marque: <?=$b->getMarque()?></p>
 
 <h4>var_dump de $b</h4>
+<pre>
 <?php 
 var_dump($b);
 ?>
+</pre>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 
-class Velo extends Vehicule
+/*class Velo extends Vehicule
 {
     protected $genre;
     protected $taille;
@@ -25,36 +25,36 @@ class Velo extends Vehicule
     }
 
     /*Getters*/
-    public function getGenre()
+    public function getGenre():string
     {
         return $this->genre;
     }
 
-    public function getTaille()
+    public function getTaille():string
     {
         return $this->taille;
     }
 
-    public function getNbreVitesses()
+    public function getNbreVitesses():int
     {
         return $this->nbreVitesses;
     }
 
     /*Setters*/
 
-    public function setGenre($genre)
+    public function setGenre(string $genre)
     {
         $this->genre = $genre;
     }
 
-    public function setTaille($taille)
+    public function setTaille(string $taille)
     {
         $this->taille = $taille;
     }
 
-    public function setNbreVitesses($nbreVitesses)
+    public function setNbreVitesses(int $nbreVitesses)
     {
         $this->nbreVitesses = $nbreVitesses;
     }
     
-}
+}*/
