@@ -1,5 +1,6 @@
 <?php
 
+// Mapping "main" de notre table article
 
 class Article
 {
