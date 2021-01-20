@@ -18,7 +18,10 @@ else:
     foreach ($afficheAllArticle as $item):
         ?>
         <h3><?= $item->getArticleTitle() ?></h3>
-        <p><?= $item->getArticleText() ?></p>
+
+        <p><?= ArticleManager::cutTheText($item->getArticleText(),30) ?></p><!--
+        On aurait du avoir une instance $ArticleManager pour utiliser cutTheText si on n'avait pas utilisé le mot static devant la méthode cutTheText
+        <p><?= $ArticleManager->cutTheText($item->getArticleText(),30) ?></p>-->
         <h5>Ecrit par <?= $item->getArticleAuthor() ?> le <?= $item->getArticleDateTime() ?></h5>
     <?php
     endforeach;

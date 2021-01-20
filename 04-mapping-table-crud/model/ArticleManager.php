@@ -21,4 +21,10 @@ class ArticleManager
             return [];
         }
     }
+
+    // function qui va permettre de couper les x premiers caractères sans couper de mots, le mot clef static va permettre d'utiliser cette méthode sans devoir instancier le classe ArticleManager
+    public static function cutTheText(string $text, int $nbChars): string{
+        $cutText = substr($text,0,$nbChars);
+        return $cutText = substr($cutText,0,strrpos($cutText," "));
+    }
 }
