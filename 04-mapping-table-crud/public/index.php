@@ -19,13 +19,29 @@ try{
 // Instantiation du manager
 $ArticleManager = new ArticleManager($myConnect);
 
-// récupération des résultats de la requête SQL en format tableau
-$recupAll = $ArticleManager->readAllArticle();
+/*
+ * Détail d'un article
+ */
 
 // on veut afficher le détail d'un article
 if(isset($_GET['titre'])){
-
+    $recupOneArticle = $ArticleManager->readOneArticle($_GET['titre']);
+    if(!empty($recupOneArticle)){
+        // instanciation d'Article avec les données récupérées
+        $article = new Article($recupOneArticle);
+    }else{
+        $error = "Cet article n'existe plus";
+    }
+    require_once "../view/articleView.php";
+    exit();
 }
+
+/*
+ * Accueil
+ */
+
+// récupération des résultats de la requête SQL en format tableau
+$recupAll = $ArticleManager->readAllArticle();
 
 // si on ne récupère pas d'articles
 if(empty($recupAll)){

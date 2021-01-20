@@ -77,7 +77,7 @@ class Article
 
     public function setArticleTitle(string $articleTitle): void
     {
-        $this->articleTitle = $articleTitle;
+        $this->articleTitle = strip_tags(trim($articleTitle));
     }
 
     public function setArticleSlug(string $articleSlug): void
