@@ -19,12 +19,17 @@ try{
 // Instantiation du manager
 $ArticleManager = new ArticleManager($myConnect);
 
-// récupération des résultats de la requête SQL
+// récupération des résultats de la requête SQL en format tableau
 $recupAll = $ArticleManager->readAllArticle();
 
-// RARE (lent et souvant inutile (double boucle) pour de l'affichage) pour l'affichage d'une simple requête, mais les puristes utiliseront les setters de Article pour être certain que les formats sont respectés
-foreach ($recupAll as $item) {
-    $afficheAllArticle[] = new Article($item);
+// si on ne récupère pas d'articles
+if(empty($recupAll)){
+    $error = "Pas encore d'article dans la table";
+}else {
+    // UTILISATION RARE (plus lente et souvent inutile (double boucle) pour de l'affichage) pour l'affichage d'une simple requête, mais les puristes utiliseront les setters de Article pour être certain que les formats sont respectés
+    foreach ($recupAll as $item) {
+        $afficheAllArticle[] = new Article($item);
+    }
 }
 
 // appel de la vue

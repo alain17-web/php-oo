@@ -10,13 +10,19 @@
 <body>
 <h1>Nos articles</h1>
 <?php
-foreach ($afficheAllArticle as $item):
+if (isset($error)):
 ?>
-<h3><?=$item->getArticleTitle()?></h3>
-<p><?=$item->getArticleText()?></p>
-<h5></h5>
+<h2><?=$error?></h2>
 <?php
-endforeach;
+else:
+    foreach ($afficheAllArticle as $item):
+        ?>
+        <h3><?= $item->getArticleTitle() ?></h3>
+        <p><?= $item->getArticleText() ?></p>
+        <h5>Ecrit par <?= $item->getArticleAuthor() ?> le <?= $item->getArticleDateTime() ?></h5>
+    <?php
+    endforeach;
+endif;
 ?>
 </body>
 </html>
