@@ -11,6 +11,7 @@
 <h1>Article : <?= (isset($error)) ? $error : $article->getArticleTitle() ?></h1>
 <ul>
     <li><a href="./">Retour à l'accueil</a></li>
+    <li><a href="?create">Créer un article</a></li>
 </ul>
 <?php
 if (!isset($error)):

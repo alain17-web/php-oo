@@ -37,6 +37,12 @@ class ArticleManager
         return [];
     }
 
+    // insert into table Article
+    public function insertArticle(Article $item){
+        //"ON EST ICI ."
+        var_dump($item);
+    }
+
     // function qui va permettre de couper les x premiers caractères sans couper de mots, le mot clef static va permettre d'utiliser cette méthode sans devoir instancier le classe ArticleManager
     public static function cutTheText(string $text, int $nbChars): string{
         $cutText = substr($text,0,$nbChars);

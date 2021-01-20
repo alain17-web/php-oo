@@ -25,14 +25,15 @@ $ArticleManager = new ArticleManager($myConnect);
 
 // on veut afficher le détail d'un article
 if(isset($_GET['titre'])){
-    $recupOneArticle = $ArticleManager->readOneArticle($_GET['titre']);
-    if(!empty($recupOneArticle)){
-        // instanciation d'Article avec les données récupérées
-        $article = new Article($recupOneArticle);
-    }else{
-        $error = "Cet article n'existe plus";
-    }
-    require_once "../view/articleView.php";
+    require_once "../controller/ReadArticle.php";
+    exit();
+}
+
+/*
+ * On veut insérer un article
+ */
+if(isset($_GET['create'])){
+    require_once "../controller/CreateArticle.php";
     exit();
 }
 

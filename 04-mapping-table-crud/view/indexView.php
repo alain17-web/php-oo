@@ -11,6 +11,7 @@
 <h1>Nos articles</h1>
 <ul>
     <li>Retour à l'accueil</li>
+    <li><a href="?create">Créer un article</a></li>
 </ul>
 <?php
 if (isset($error)):
