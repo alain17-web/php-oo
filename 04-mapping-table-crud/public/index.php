@@ -22,6 +22,11 @@ $ArticleManager = new ArticleManager($myConnect);
 // récupération des résultats de la requête SQL en format tableau
 $recupAll = $ArticleManager->readAllArticle();
 
+// on veut afficher le détail d'un article
+if(isset($_GET['titre'])){
+
+}
+
 // si on ne récupère pas d'articles
 if(empty($recupAll)){
     $error = "Pas encore d'article dans la table";
