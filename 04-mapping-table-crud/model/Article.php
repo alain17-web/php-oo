@@ -5,12 +5,24 @@
 class Article
 {
     // Attributs
+
+    /* si les attibuts sont typés et non initialisés, on doit utiliser une classe externe pour vérifier ces champs "uninitialised": https://www.php.net/manual/fr/class.reflectionproperty.php
     private int $idarticle;
     private string $articleTitle;
     private string $articleSlug;
     private string $articleText;
     private string $articleDateTime;
     private string $articleAuthor;
+    */
+    /*
+     * Attributs non typés, valent NULL si non initialisés
+     */
+    private $idarticle;
+    private $articleTitle;
+    private $articleSlug;
+    private $articleText;
+    private $articleDateTime;
+    private $articleAuthor;
 
 
 
