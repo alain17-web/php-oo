@@ -39,16 +39,19 @@ class ArticleManager
 
     // insert into table Article
     public function insertArticle(Article $item){
-        //"ON EST ICI ."
-        var_dump($item);
         $sql = "INSERT INTO article (articleTitle,articleSlug,articleText,articleAuthor) VALUES (?,?,?,?)";
         $request = $this->db->prepare($sql);
-        $request->execute([
-            $item->getArticleTitle(),
-            $item->getArticleSlug(),
-            $item->getArticleText(),
-            $item->getArticleAuthor()]
-        );
+        try {
+            $request->execute([
+                    $item->getArticleTitle(),
+                    $item->getArticleSlug(),
+                    $item->getArticleText(),
+                    $item->getArticleAuthor()]
+            );
+            return true;
+        }catch (PDOException $e){
+            return $e->getMessage();
+        }
 
     }
 
