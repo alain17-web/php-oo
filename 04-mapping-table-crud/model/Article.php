@@ -89,27 +89,60 @@ class Article
 
     public function setArticleTitle(string $articleTitle): void
     {
-        $this->articleTitle = strip_tags(trim($articleTitle));
+         $title = strip_tags(trim($articleTitle));
+        if(empty($title)){
+            print("Votre titre ne peut être vide");
+        }elseif (strlen($title)>180){
+            print("Votre titre ne peut pas dépasser 180 caractères");
+        }else{
+            $this->articleTitle = $title;
+        }
     }
 
     public function setArticleSlug(string $articleSlug): void
     {
-        $this->articleSlug = $articleSlug;
+        $slug = strip_tags(trim($articleSlug));
+        if(empty($slug)){
+            print("Votre slug ne peut être vide");
+        }elseif (strlen($slug)>180){
+            print("Votre slug ne peut pas dépasser 180 caractères");
+        }else {
+            $this->articleSlug = $articleSlug;
+        }
     }
 
     public function setArticleText(string $articleText): void
     {
-        $this->articleText = $articleText;
+        $text = strip_tags(trim($articleText),"<br>,<p>,<div>,<a>,<img>");
+        if(empty($text)){
+            print("Votre texte ne peut être vide");
+        }else {
+            $this->articleText = $articleText;
+        }
     }
 
     public function setArticleDateTime(string $articleDateTime): void
     {
-        $this->articleDateTime = $articleDateTime;
+
+        // vérification d'un datetime valide (à perfectionner) grâce à une regex (expression régulière)
+        $regex = preg_grep("/^(\d{4})-(\d{2})-([\d]{2}) (\d{2}):([0-5]{1})([0-9]{1}):([0-5]{1})([0-9]{1})$/",[$articleDateTime]);
+        if(empty($regex)){
+            print("Format de date non valide");
+        }else {
+            $this->articleDateTime = $articleDateTime;
+        }
     }
 
     public function setArticleAuthor(string $articleAuthor): void
     {
-        $this->articleAuthor = $articleAuthor;
+        $author = strip_tags(trim($articleAuthor));
+        if(empty($author)){
+            print("Votre nom d'auteur ne peut être vide");
+        }elseif (strlen($author)>250){
+            print("Votre nom d'auteur ne peut pas dépasser 250 caractères");
+        }else {
+            $this->articleAuthor = $articleAuthor;
+        }
     }
 
 
