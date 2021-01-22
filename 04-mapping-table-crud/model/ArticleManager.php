@@ -41,6 +41,15 @@ class ArticleManager
     public function insertArticle(Article $item){
         //"ON EST ICI ."
         var_dump($item);
+        $sql = "INSERT INTO article (articleTitle,articleSlug,articleText,articleAuthor) VALUES (?,?,?,?)";
+        $request = $this->db->prepare($sql);
+        $request->execute([
+            $item->getArticleTitle(),
+            $item->getArticleSlug(),
+            $item->getArticleText(),
+            $item->getArticleAuthor()]
+        );
+
     }
 
     // function qui va permettre de couper les x premiers caractères sans couper de mots, le mot clef static va permettre d'utiliser cette méthode sans devoir instancier le classe ArticleManager
