@@ -49,7 +49,7 @@ class ArticleManager
                     $item->getArticleAuthor()]
             );
             return true;
-        }catch (PDOException $e){
+        }catch (Exception $e){
             return $e->getMessage();
         }
 

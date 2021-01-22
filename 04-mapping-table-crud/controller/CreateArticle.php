@@ -2,7 +2,11 @@
 
 if(!empty($_POST)){
     $ArticleInsert = new Article($_POST);
-    $ArticleManager->insertArticle($ArticleInsert);
+    $insert = $ArticleManager->insertArticle($ArticleInsert);
+    if($insert===true){
+        header("Location: ./");
+    }
+
 }
 
 
