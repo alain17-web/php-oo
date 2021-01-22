@@ -18,3 +18,42 @@ try{
 
 // Instantiation du manager
 $ArticleManager = new ArticleManager($myConnect);
+
+/*
+ * Détail d'un article
+ */
+
+// on veut afficher le détail d'un article
+if(isset($_GET['titre'])){
+    require_once "../controller/ReadArticle.php";
+    exit();
+}
+
+/*
+ * On veut insérer un article
+ */
+if(isset($_GET['create'])){
+    require_once "../controller/CreateArticle.php";
+    exit();
+}
+
+/*
+ * Accueil
+ */
+
+// récupération des résultats de la requête SQL en format tableau
+$recupAll = $ArticleManager->readAllArticle();
+
+// si on ne récupère pas d'articles
+if(empty($recupAll)){
+    $error = "Pas encore d'article dans la table";
+}else {
+    // UTILISATION RARE (plus lente et souvent inutile (double boucle) pour de l'affichage) pour l'affichage d'une simple requête, mais les puristes utiliseront les setters de Article pour être certain que les formats sont respectés
+    foreach ($recupAll as $item) {
+        $afficheAllArticle[] = new Article($item);
+    }
+}
+
+// appel de la vue
+require_once "../view/indexView.php";
+
