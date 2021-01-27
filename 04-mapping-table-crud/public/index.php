@@ -16,7 +16,7 @@ try{
     die($e->getMessage());
 }
 
-// Instantiation du manager
+// Instantiation du manager (une seule instance de cette classe acceptée : "pseudo" design pattern "singleton", mais n'est pas réellement activé ici, on peut instancier autant de ArticleManager qu'on le souhaite)
 $ArticleManager = new ArticleManager($myConnect);
 
 /*
@@ -35,6 +35,13 @@ if(isset($_GET['titre'])){
 if(isset($_GET['create'])){
     require_once "../controller/CreateArticle.php";
     exit();
+}
+
+/*
+ * On veut supprimer un article
+ */
+if(isset($_GET['delete'])){
+    require_once "../controller/DeleteArticle.php";
 }
 
 /*
