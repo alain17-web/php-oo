@@ -54,27 +54,27 @@ class Article
         return $this->idarticle;
     }
 
-    public function getArticleTitle(): string
+    public function getArticleTitle(): ?string
     {
         return $this->articleTitle;
     }
 
-    public function getArticleSlug(): string
+    public function getArticleSlug(): ?string
     {
         return $this->articleSlug;
     }
 
-    public function getArticleText(): string
+    public function getArticleText(): ?string
     {
         return $this->articleText;
     }
 
-    public function getArticleDateTime(): string
+    public function getArticleDateTime(): ?string
     {
         return $this->articleDateTime;
     }
 
-    public function getArticleAuthor(): string
+    public function getArticleAuthor(): ?string
     {
         return $this->articleAuthor;
     }
@@ -91,9 +91,9 @@ class Article
     {
          $title = strip_tags(trim($articleTitle));
         if(empty($title)){
-            print("Votre titre ne peut être vide");
+            trigger_error("Votre titre ne peut être vide",E_USER_NOTICE);
         }elseif (strlen($title)>180){
-            print("Votre titre ne peut pas dépasser 180 caractères");
+            trigger_error("Votre titre ne peut pas dépasser 180 caractères",E_USER_NOTICE);
         }else{
             $this->articleTitle = $title;
         }

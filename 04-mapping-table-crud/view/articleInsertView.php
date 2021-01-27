@@ -14,6 +14,9 @@
     <li><a href="?create">Créer un article</a></li>
 </ul>
 <form action="" name="insertion" method="post">
+    <?php
+    if(isset($insert)) echo $insert;
+    ?>
     <input type="text" name="articleTitle" placeholder="Votre titre" required><br>
     <input type="text" name="articleSlug" placeholder="Votre slug" required><br>
     <textarea name="articleText" placeholder="Votre texte" required></textarea><br>
