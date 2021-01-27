@@ -41,6 +41,7 @@ class ArticleManager
     public function insertArticle(Article $item){
         $sql = "INSERT INTO article (articleTitle,articleSlug,articleText,articleAuthor) VALUES (?,?,?,?)";
         $request = $this->db->prepare($sql);
+        // essai d'insertion
         try {
             $request->execute([
                     $item->getArticleTitle(),
@@ -49,8 +50,22 @@ class ArticleManager
                     $item->getArticleAuthor()]
             );
             return true;
+        // si erreur d'insertion
         }catch (Exception $e){
-            return $e->getMessage();
+            // si c'est le slug qui est dupliqué (champs unique)
+            if(strstr($e->getMessage(),"articleSlug_UNIQUE")){
+                // on réinsert en changeant le nom du slug
+                $request->execute([
+                        $item->getArticleTitle(),
+                        $item->getArticleSlug()."-".uniqid(),
+                        $item->getArticleText(),
+                        $item->getArticleAuthor()]
+                );
+                return true;
+
+            }else{
+                return $e->getMessage();
+            }
         }
 
     }
