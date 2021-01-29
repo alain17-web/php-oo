@@ -20,6 +20,9 @@ if (!isset($error)):
 
     <p><?= nl2br($article->getArticleText()) ?></p>
     <h5>Ecrit par <?= $article->getArticleAuthor() ?> le <?= $article->getArticleDateTime() ?></h5>
+<p>
+    <a href="?update=<?=$article->getIdarticle()?>">Modifier</a> | <a href="?delete=<?=$article->getIdarticle()?>">Supprimer</a>
+</p>
 <?php
 endif;
 ?>

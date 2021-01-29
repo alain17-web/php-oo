@@ -23,7 +23,7 @@ $ArticleManager = new ArticleManager($myConnect);
  * Détail d'un article
  */
 
-// on veut afficher le détail d'un article
+// on veut afficher le détail d'un article grâce au slug passé par la variable get titre
 if(isset($_GET['titre'])){
     require_once "../controller/ReadArticle.php";
     exit();
@@ -40,9 +40,19 @@ if(isset($_GET['create'])){
 /*
  * On veut supprimer un article
  */
-if(isset($_GET['delete'])){
+if(isset($_GET['delete'])&&ctype_digit($_GET['delete'])){
     require_once "../controller/DeleteArticle.php";
+    exit();
 }
+
+/*
+ * On veut modifier un article
+ */
+if(isset($_GET['update'])&&ctype_digit($_GET['update'])){
+    require_once "../controller/UpdateArticle.php";
+    exit();
+}
+
 
 /*
  * Accueil
