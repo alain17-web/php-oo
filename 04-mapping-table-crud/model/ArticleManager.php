@@ -23,7 +23,7 @@ class ArticleManager
     }
 
     // select one article by slug
-    public function readAllArticleBySlug(String $slug): Array{
+    public function readOneArticleBySlug(String $slug): Array{
         // prepare request
         $sql = "SELECT * FROM article WHERE articleSlug=?";
         $prepare = $this->db->prepare($sql);
