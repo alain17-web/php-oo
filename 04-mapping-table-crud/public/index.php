@@ -50,7 +50,7 @@ if(isset($_GET['delete'])&&ctype_digit($_GET['delete'])){
  */
 
 // récupération des résultats de la requête SQL en format tableau
-$recupAll = $ArticleManager->readAllArticle();
+$recupAll = $ArticleManager->readAllArticleBySlug();
 
 // si on ne récupère pas d'articles
 if(empty($recupAll)){
