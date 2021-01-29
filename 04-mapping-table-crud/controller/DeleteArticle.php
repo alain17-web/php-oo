@@ -8,6 +8,17 @@ $idarticle = (int) $_GET['delete'];
 
 // on a cliqué sur "oui" => vraiment supprimer l'article
 if(isset($_GET['ok'])){
+    // on essaye de supprimer l'article
+    $delete = $ArticleManager->deleteArticleById($idarticle);
+
+    // pas de soucis de suppression
+    if($delete===true){
+        // redirection
+        header("Location: ./");
+        exit();
+    }
+    // sinon affichage de l'erreur
+    echo $delete;
 
 // on arrive sur la page de suppression
 }else{
