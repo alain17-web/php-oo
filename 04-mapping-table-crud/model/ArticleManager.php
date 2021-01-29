@@ -85,6 +85,18 @@ class ArticleManager
 
     }
 
+    // delete article by id
+    public function deleteArticleById(int $id) {
+        $sql = "DELETE FROM article WHERE idarticle=?";
+        $prepare = $this->db->prepare($sql);
+        try{
+            $prepare->execute([$id]);
+            return true;
+        }catch(PDOException $exception){
+            return $exception->getMessage();
+        }
+    }
+
     // function qui va permettre de couper les x premiers caractères sans couper de mots, le mot clef static va permettre d'utiliser cette méthode sans devoir instancier le classe ArticleManager
     public static function cutTheText(string $text, int $nbChars): string{
         $cutText = substr($text,0,$nbChars);
