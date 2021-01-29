@@ -46,6 +46,15 @@ if(isset($_GET['delete'])&&ctype_digit($_GET['delete'])){
 }
 
 /*
+ * On veut modifier un article
+ */
+if(isset($_GET['update'])&&ctype_digit($_GET['update'])){
+    require_once "../controller/UpdateArticle.php";
+    exit();
+}
+
+
+/*
  * Accueil
  */
 
