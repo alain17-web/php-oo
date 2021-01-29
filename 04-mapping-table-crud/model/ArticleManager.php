@@ -97,6 +97,26 @@ class ArticleManager
         }
     }
 
+    // update article by GET id and (instance d'Article - Article's object by POST)
+    public function updateArticleById(Article $article, int $idarticle){
+        // no hack
+        if($idarticle == $article->getIdarticle()){
+            // prepare request
+            $sql = "UPDATE article SET articleTitle= :articleTitle,articleSlug= :articleSlug, articleText= :articleText, articleDateTime= :articleDateTime, articleAuthor= :articleAuthor WHERE idarticle=:idarticle";
+            $prepare= $this->db->prepare($sql);
+
+            // attribute values
+            $prepare->bindValue("idarticle",$article->getIdarticle(),PDO::PARAM_INT);
+            $prepare->bindValue("articleTitle",$article->getArticleTitle(),PDO::PARAM_STR);
+            /*
+             * ON EST ICI
+             */
+
+        }else{
+            return "No hack my site!";
+        }
+    }
+
     // function qui va permettre de couper les x premiers caractères sans couper de mots, le mot clef static va permettre d'utiliser cette méthode sans devoir instancier le classe ArticleManager
     public static function cutTheText(string $text, int $nbChars): string{
         $cutText = substr($text,0,$nbChars);

@@ -8,9 +8,10 @@ $idarticle = (int) $_GET['update'];
 if(!empty($_POST)){
     // create an Article's object
     $updateArticle = new Article($_POST);
-    echo"<pre>";
-    var_dump($updateArticle);
-    echo"</pre>";
+    // update
+            /*
+             * ON EST ICI
+             */
 }
 
 // get one article by id
