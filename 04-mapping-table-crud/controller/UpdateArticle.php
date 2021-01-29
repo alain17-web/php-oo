@@ -4,7 +4,14 @@
  */
 $idarticle = (int) $_GET['update'];
 
-// model
+// si on a envoyé le formulaire
+if(!empty($_POST)){
+    // create an Article's object
+    $updateArticle = new Article($_POST);
+    echo"<pre>";
+    var_dump($updateArticle);
+    echo"</pre>";
+}
 
 // get one article by id
 $recup = $ArticleManager->readOneArticleById($idarticle);
