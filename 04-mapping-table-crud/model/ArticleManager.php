@@ -37,6 +37,21 @@ class ArticleManager
         return [];
     }
 
+    // select one article by id
+    public function readOneArticleById(int $id): Array{
+        // prepare request
+        $sql = "SELECT * FROM article WHERE idarticle=?";
+        $prepare = $this->db->prepare($sql);
+        $prepare->bindValue(1,$id,PDO::PARAM_INT);
+        $prepare->execute();
+        // on a une ligne de résultat
+        if($prepare->rowCount()){
+            return $prepare->fetch(PDO::FETCH_ASSOC);
+        }
+        // pas de résultats
+        return [];
+    }
+
     // insert into table Article
     public function insertArticle(Article $item){
         $sql = "INSERT INTO article (articleTitle,articleSlug,articleText,articleAuthor) VALUES (?,?,?,?)";
