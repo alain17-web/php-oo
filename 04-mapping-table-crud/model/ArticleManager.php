@@ -12,7 +12,7 @@ class ArticleManager
     }
 
     // Read all from Article
-    public function readAllArticleBySlug(): Array {
+    public function readAllArticle(): Array {
         $sql = "SELECT * FROM article ORDER BY articleDateTime DESC";
         $recupAll = $this->db->query($sql);
         if($recupAll->rowCount()) {
@@ -23,7 +23,7 @@ class ArticleManager
     }
 
     // select one article by slug
-    public function readOneArticle(String $slug): Array{
+    public function readAllArticleBySlug(String $slug): Array{
         // prepare request
         $sql = "SELECT * FROM article WHERE articleSlug=?";
         $prepare = $this->db->prepare($sql);

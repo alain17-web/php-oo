@@ -1,6 +1,6 @@
 <?php
 // récupération d'un article
-$recupOneArticle = $ArticleManager->readOneArticle($_GET['titre']);
+$recupOneArticle = $ArticleManager->readAllArticleBySlug($_GET['titre']);
 if(!empty($recupOneArticle)){
     // instanciation d'Article avec les données récupérées
     $article = new Article($recupOneArticle);
