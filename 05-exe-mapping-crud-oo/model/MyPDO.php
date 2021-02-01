@@ -3,7 +3,7 @@
 // ceci est la lasse fille de la classe PDO
 class MyPDO extends PDO
 {
-    // Attribut
+    // Attributs - Propriétés
     private int $connect;
 
     // constructeur personnel
