@@ -13,3 +13,12 @@ require_once "../config.php";
 require_once "../model/MyPDO.php";
 require_once "../model/theuser/Theuser.php";
 require_once "../model/theuser/TheuserManager.php";
+
+// DB's connection
+try{
+    $myConnect = new MyPDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT.";charset=".DB_CHARSET,DB_LOGIN,DB_PWD,ENV_DEV);
+}catch(PDOException $e){
+    die($e->getMessage());
+}
+// create TheuserManager
+$userManager = new TheuserManager($myConnect);

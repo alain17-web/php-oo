@@ -1,7 +1,9 @@
 <?php
 
-/*
+
+/**
  * Theuser's Manager
+ * Class TheuserManager
  */
 class TheuserManager
 {
