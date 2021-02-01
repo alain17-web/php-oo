@@ -16,23 +16,7 @@ class MyPDO extends PDO
         if($error===true){
             $this->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         }
-        // on va prendre l'heure en Temps UNIX lors de l'instanciation
-        $this->setConnect();
-    }
-    // je veux interdire l'utilisation d'exec natif de PDO -> cet enfant de PDO est incapable d'exécuter des exec, on écrase la méthode exec
-    public function exec($statement){}
 
-    // getter
-    public function getConnect(): int
-    {
-        return $this->connect;
     }
-
-    // méthodes qui prend le timestamp de la dernière connexion
-    private function setConnect(): void
-    {
-        $this->connect = time();
-    }
-
 
 }
