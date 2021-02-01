@@ -59,7 +59,7 @@ class TheuserManager
             $req->execute();
             if($req->rowCount()){
                 $_SESSION = $req->fetch(PDO::FETCH_ASSOC);
-                $_SESSION = session_id();
+                $_SESSION['idsession'] = session_id();
                 return true;
             }else{
                 return false;

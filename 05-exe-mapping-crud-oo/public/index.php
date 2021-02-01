@@ -20,5 +20,13 @@ try{
 }catch(PDOException $e){
     die($e->getMessage());
 }
+
 // create TheuserManager
 $userManager = new TheuserManager($myConnect);
+
+// session routing
+if(isset($_SESSION['idsession'])&&$_SESSION['idsession']==session_id()){
+    require_once "../controller/adminContoller.php";
+}else{
+    require_once "../controller/publicController.php";
+}
