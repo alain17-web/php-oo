@@ -1,6 +1,8 @@
 <?php
 
-/*
+
+/**
+ * Class Theuser
  * Mapping of theuser's table
  */
 class Theuser{
@@ -65,7 +67,12 @@ class Theuser{
      */
     public function setTheUserLogin(string $theUserLogin): void
     {
-        $this->theUserLogin = $theUserLogin;
+        $theUserLogin = strip_tags(trim($theUserLogin));
+        if(strlen($theUserLogin)<3 || strlen($theUserLogin)>60){
+            trigger_error("Le login doit être plus grand que 2 et plus petit que 60 caractères!",E_USER_NOTICE );
+        }else {
+            $this->theUserLogin = $theUserLogin;
+        }
     }
 
     /**
@@ -83,8 +90,13 @@ class Theuser{
      */
     public function setTheUserPwd(string $theUserPwd): void
     {
-        $this->theUserPwd = $theUserPwd;
+        $theUserPwd = strip_tags(trim($theUserPwd));
+        if(strlen($theUserPwd)<3 || strlen($theUserPwd)>60){
+            trigger_error("Le mot de passe doit être plus grand que 2 et plus petit que 60 caractères!",E_USER_NOTICE );
+        }else {
+            $this->theUserPwd = $theUserPwd;
+        }
     }
 
-
 }
+
