@@ -3,6 +3,9 @@
  * Front Controller
  */
 
+// Session
+session_start();
+
 /*
  * Dependencies
  */
