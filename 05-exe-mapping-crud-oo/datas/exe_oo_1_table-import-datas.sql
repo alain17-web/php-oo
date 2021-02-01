@@ -29,7 +29,7 @@ USE `exe_oo_1_table`;
 DROP TABLE IF EXISTS `theuser`;
 CREATE TABLE IF NOT EXISTS `theuser` (
                                          `idtheUser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-                                         `theUserLogin` varchar(60) DEFAULT NULL,
+                                         `theUserLogin` varchar(60) NOT NULL,
                                          `theUserPwd` varchar(60) NOT NULL,
                                          PRIMARY KEY (`idtheUser`),
                                          UNIQUE KEY `theUserLogin_UNIQUE` (`theUserLogin`)
