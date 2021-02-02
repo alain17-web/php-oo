@@ -36,6 +36,13 @@
 
                 <h1>Connexion</h1>
                 <hr>
+                <?php
+                if(isset($message)):
+                ?>
+                    <button type="button" class="btn btn-warning"><?=$message?></button>
+                <?php
+                endif;
+                ?>
                 <form action="" name="connection" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Votre login :</label>
