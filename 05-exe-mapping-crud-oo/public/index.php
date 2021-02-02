@@ -26,7 +26,9 @@ $userManager = new TheuserManager($myConnect);
 
 // session routing
 if(isset($_SESSION['idsession'])&&$_SESSION['idsession']==session_id()){
+    // admin
     require_once "../controller/adminController.php";
 }else{
+    // public
     require_once "../controller/publicController.php";
 }

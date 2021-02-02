@@ -3,5 +3,10 @@
  * Public's controller
  */
 
-// view
-require_once "../view/public/indexView.php";
+// connect view
+if(isset($_GET['connect'])){
+    require_once "../view/public/connectPublicView.php";
+    exit();
+}
+// home view
+require_once "../view/public/indexPublicView.php";
