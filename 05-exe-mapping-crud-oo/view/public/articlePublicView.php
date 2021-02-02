@@ -41,6 +41,8 @@
                 <p>Au format comme l'article ci-dessous, il est complet et a le login joint de l'utilisateur qui l'a écrit</p>
                 <p>Quand on clique sur l'auteur on a tous les articles écrits par celui-ci</p>
                 <p>Le texte est complet et le retour à la ligne est automatique</p>
+                <p>Pour valider l'affichage et l'effectuer, vous devrez avoir au préalable rempli les modèles <strong>Thenews</strong> (pour l'hydratation et les vérifications avec les setters) et <strong>ThenewsManager</strong> (pour l'insertion grâce à une méthode dédiée)</p>
+                <p>La partie <i>// create article</i> de l'<strong>adminController</strong> devra également être modifié</p>
                 <hr>
                 <h4>Titre News 2</h4>
                 <p>Ici le texte complet avec des<br>retours à la ligne <br> automatiques</p>

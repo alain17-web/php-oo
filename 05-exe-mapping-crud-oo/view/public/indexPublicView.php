@@ -41,6 +41,8 @@
                 <p>Au format comme les 2 articles ci-dessous, ils sont classés par la date descendante et ils ont le login joint de l'utilisateur qui les a écrit</p>
                 <p>Quand on clique sur l'auteur on a tous les articles écrits par celui-ci</p>
                 <p>Quand on clique sur lire la suite on a le détail de l'article avec des retours à la ligne automatique!</p>
+                <p>Pour valider l'affichage et l'effectuer, vous devrez avoir au préalable rempli les modèles <strong>Thenews</strong> (pour l'hydratation et les vérifications avec les setters et l'affichage avec les getters) et <strong>ThenewsManager</strong> (pour récupérer leurs articles et leur auteur grâce à une méthode dédiée)</p>
+                <p>La partie <i>// create article</i> de l'<strong>adminController</strong> devra également être modifié</p>
                 <hr>
                 <h4>Titre News 2</h4>
                 <p>Ici un autre texte de maximum 150 caractères avec un ... <a href="?idarticle=2">Lire la suite</a></p>

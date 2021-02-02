@@ -49,6 +49,8 @@
                 <p>Quand on clique sur lire la suite on a le détail de l'article avec des retours à la ligne automatique!</p>
                 <p>On pourra modifier ou supprimer l'article sur le détail de l'article (choix arbitraire)</p>
                 <p>Pour créer un nouvel article, le lien se trouve dans le menu du haut</p>
+                <p>Pour afficher les articles, vous devrez avoir au préalable remplir les modèles <strong>Thenews</strong> (pour l'hydratation et les vérifications avec les setters et l'affichage grâce aux getters) et <strong>ThenewsManager</strong> (pour </p>
+                <p>La partie <i>// home view</i> du<strong>publicController</strong> devra également être modifié</p>
                 <hr>
                 <h4>Titre News 2</h4>
                 <p>Ici un autre texte de maximum 150 caractères avec un ... <a href="?idarticle=2">Lire la suite - modifier/supprimer</a></p>
