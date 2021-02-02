@@ -27,5 +27,16 @@ if(isset($_GET['connect'])){
     require_once "../view/public/connectPublicView.php";
     exit();
 }
+
+// article detail view
+if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
+    // exercice's action
+
+    // view
+    require_once "../view/public/articlePublicView.php";
+    exit();
+}
+
+
 // home view
 require_once "../view/public/indexPublicView.php";
