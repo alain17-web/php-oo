@@ -37,6 +37,31 @@ if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
     exit();
 }
 
+// author detail view
+if(isset($_GET['idauteur'])&&ctype_digit($_GET['idauteur'])){
+    // select author
+    $iduser = (int) $_GET['idauteur'];
+    $recup = $userManager->selectOneUserById($iduser);
+    // no sql error
+    if(is_array($recup)){
+        // user exist
+        if(!empty($recup)){
+            $user = new Theuser($recup);
+        }else{
+            $message = "Cet utilisateur n'existe plus";
+        }
+    }else{
+        $message = $recup;
+    }
+
+
+    // exercice's action
+
+    // view
+    require_once "../view/public/auteurPublicView.php";
+    exit();
+}
+
 
 // home view
 require_once "../view/public/indexPublicView.php";

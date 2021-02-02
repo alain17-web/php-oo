@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tous les articles de </title>
+    <title>Tous les articles de <?= (isset($message))?$message:$user->getTheUserLogin() ;?></title>
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="css/custom.min.css" media="screen">
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -34,11 +34,18 @@
         <div class="row">
             <div class="col-lg-12 mx-auto">
 
-                    <h1>Tous les articles de </h1>
+                    <h1>Tous les articles de <?= (isset($message))?$message:$user->getTheUserLogin() ;?></h1>
                 <hr>
                 <h3>Exercice: Ici votre liste d'articles de l'auteur sélectionné</h3>
                 <p>Au format comme les 2 articles ci-dessous, ils sont classés par la date descendante</p>
                 <p>Quand on clique sur lire la suite on a le détail de l'article avec des retours à la ligne automatique!</p>
+                <?php
+                if(isset($message)):
+                    ?>
+                    <button type="button" class="btn btn-warning"><?=$message?></button>
+                <?php
+                else:
+                ?>
                 <hr>
                 <h4>Titre News 2</h4>
                 <p>Ici un autre texte de maximum 150 caractères avec un ... <a href="?idarticle=2">Lire la suite</a></p>
@@ -47,6 +54,9 @@
                 <h4>Titre News 1</h4>
                 <p>Ici le texte de maximum 150 caractères avec un ... <a href="?idarticle=1">Lire la suite</a></p>
                 <h5>Le 2020-02-01 16:40:22</h5>
+                <?php
+                endif;
+                ?>
                 <hr>
                 <a href="#page-top">Retour en haut</a>
                 <hr>

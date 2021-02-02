@@ -30,18 +30,22 @@ class TheuserManager
         return [];
     }
 
+
     /**
-     * selectOneUserById()
      * @param int $id
-     * @return array
+     * @return array|string
      */
-    public function selectOneUserById(int $id): array {
+    public function selectOneUserById(int $id) {
         $req = $this->connect->prepare("SELECT idtheUser, theUserLogin FROM theuser WHERE idtheUser= ? ;");
-        $req->execute([$id]);
-        if($req->rowCount()){
-            return $req->fetch(PDO::FETCH_ASSOC);
+        try {
+            $req->execute([$id]);
+            if ($req->rowCount()) {
+                return $req->fetch(PDO::FETCH_ASSOC);
+            }
+            return [];
+        }catch(PDOException $e){
+            return $e->getMessage();
         }
-        return [];
     }
 
 
