@@ -34,4 +34,6 @@ Des utilisateurs sont déjà créés, mais pas d'articles:
 |12|Saadallah|Saadallah -
 |13|Virgile|Virgile -
 |14|Michaël|Michaël - 
+####Structure de fichiers
+Au début de l'exercice:
 
