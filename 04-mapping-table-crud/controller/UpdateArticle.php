@@ -8,6 +8,7 @@ $idarticle = (int) $_GET['update'];
 if(!empty($_POST)){
     // create an Article's object
     $updateArticle = new Article($_POST);
+    var_dump($updateArticle);
     // update
             /*
              * ON EST ICI
