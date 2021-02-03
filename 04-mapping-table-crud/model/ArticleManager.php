@@ -108,10 +108,18 @@ class ArticleManager
             // attribute values
             $prepare->bindValue("idarticle",$article->getIdarticle(),PDO::PARAM_INT);
             $prepare->bindValue("articleTitle",$article->getArticleTitle(),PDO::PARAM_STR);
-            /*
-             * ON EST ICI
-             */
+            $prepare->bindValue("articleSlug",$article->getArticleSlug(),PDO::PARAM_STR);
+            $prepare->bindValue("articleText",$article->getArticleText(),PDO::PARAM_STR);
+            $prepare->bindValue("articleAuthor",$article->getArticleAuthor(),PDO::PARAM_STR);
+            $prepare->bindValue("articleDateTime",$article->getArticleDateTime(),PDO::PARAM_STR);
 
+            // execute
+            try{
+                $prepare->execute();
+                return true;
+            }catch (PDOException $e){
+                return $e->getMessage();
+            }
         }else{
             return "No hack my site!";
         }

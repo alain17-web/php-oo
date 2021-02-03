@@ -69,7 +69,7 @@ class Article
         return $this->articleText;
     }
 
-    public function getArticleDateTime(): ?string
+    public function getArticleDateTime(): string
     {
         return $this->articleDateTime;
     }
