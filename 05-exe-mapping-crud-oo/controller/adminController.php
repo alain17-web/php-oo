@@ -21,5 +21,15 @@ if(isset($_GET['create'])){
     exit();
 }
 
+// detail admin article
+if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
+
+    // exercice's action
+
+    // form view
+    require_once "../view/admin/articleAdminView.php";
+    exit();
+}
+
 // homepage admin view
 require_once "../view/admin/indexAdminView.php";

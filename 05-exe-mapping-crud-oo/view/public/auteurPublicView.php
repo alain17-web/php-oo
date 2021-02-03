@@ -37,8 +37,10 @@
                     <h1>Tous les articles de <?= (isset($message))?$message:$user->getTheUserLogin() ;?></h1>
                 <hr>
                 <h3>Exercice: Ici votre liste d'articles de l'auteur sélectionné</h3>
-                <p>Au format comme les 2 articles ci-dessous, ils sont classés par la date descendante</p>
+                <p>Au format comme les 2 articles ci-dessous, ils sont classés par la date descendante et n'appartiennent qu'à l'auteur connecté</p>
                 <p>Quand on clique sur lire la suite on a le détail de l'article avec des retours à la ligne automatique!</p>
+                <p>Pour afficher les articles, vous devrez avoir au préalable remplir les modèles <strong>Thenews</strong> (pour l'hydratation et les vérifications avec les setters et l'affichage grâce aux getters) et <strong>ThenewsManager</strong> (pour la sélection des articles dont l'id de l'utilisateur correspond) </p>
+                <p>La partie <i>// author detail view</i> du <strong>publicController</strong> devra également être modifié</p>
                 <?php
                 if(isset($message)):
                     ?>
