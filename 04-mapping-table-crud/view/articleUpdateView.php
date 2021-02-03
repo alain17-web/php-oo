@@ -15,14 +15,17 @@
 </ul>
 <?php
 if(isset($error)):
-
+    echo $error;
 else:
 ?>
 <form action="" name="update" method="post">
-    <input type="text" name="articleTitle" placeholder="Votre titre" required value="<?=$article->getArticleTitle()?>"><br>
+    <input type="text" name="articleTitle" placeholder="Votre titre" required value="<?php
+    // le " et le ' ne posent plus de problèmes d'attaques sur une base de données grâce aux requêtes préparées, par contre ça peut poser un problème d'affichage dans un formulaire, on peut donc utiliser htmlspecialchars($var,ENT_QUOTES)
+    echo htmlspecialchars($article->getArticleTitle(),ENT_QUOTES);
+    ?>"><br>
     <input type="text" name="articleSlug" placeholder="Votre slug" value="<?=$article->getArticleSlug()?>" required ><br>
     <textarea name="articleText" placeholder="Votre texte" required><?=$article->getArticleText()?></textarea><br>
-    <input type="text" name="articleAuthor" placeholder="Votre nom" value="<?=$article->getArticleAuthor()?>" required><br>
+    <input type="text" name="articleAuthor" placeholder="Votre nom" value="<?=htmlspecialchars($article->getArticleAuthor(),ENT_QUOTES)?>" required><br>
     <input type="text" name="articleDateTime" placeholder="Date de parution" value="<?=$article->getArticleDateTime()?>" required><br>
     <input type="hidden" name="idarticle" value="<?=$article->getIdarticle()?>">
     <input type="submit" value="Envoyer"><br>
