@@ -118,6 +118,15 @@ class ArticleManager
                 $prepare->execute();
                 return true;
             }catch (PDOException $e){
+                // si c'est le slug qui est dupliqué (champs unique)
+                if(strstr($e->getMessage(),"articleSlug_UNIQUE")) {
+                    // on regénère un slug unique
+                    $slug = $article->getArticleSlug() . "-" . uniqid();
+                    // on réinsert en changeant le nom du slug
+                    $prepare->bindValue("articleSlug",$slug , PDO::PARAM_STR);
+                    $prepare->execute();
+                    return [$slug];
+                }
                 return $e->getMessage();
             }
         }else{
