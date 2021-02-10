@@ -15,7 +15,7 @@ class Thenews
 
     // EXERCICE créez le constructeur
     public function __construct(array $datas){
-
+        $this->hydrate($datas);
     }
 
 
@@ -68,7 +68,7 @@ class Thenews
     /**
      * @return int
      */
-    public function getTheUserIdtheUser(): int
+    public function getTheUser_idtheUser(): int
     {
         return $this->theUser_idtheUser;
     }
@@ -136,7 +136,7 @@ class Thenews
     /**
      * @param int $theUser_idtheUser
      */
-    public function setTheUserIdtheUser(int $theUser_idtheUser): void
+    public function setTheUser_idtheUser(int $theUser_idtheUser): void
     {
         $theUser_idtheUser = (int) $theUser_idtheUser;
         if(!empty($theUser_idtheUser)) {
@@ -146,11 +146,6 @@ class Thenews
         }
 
     }
-
-
-
-
-
 
 
 
