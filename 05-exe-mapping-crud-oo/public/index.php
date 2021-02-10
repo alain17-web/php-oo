@@ -13,6 +13,9 @@ require_once "../config.php";
 require_once "../model/MyPDO.php";
 require_once "../model/theuser/Theuser.php";
 require_once "../model/theuser/TheuserManager.php";
+// Appeler les modèles Thenews et ThenewsManager
+require_once "../model/thenews/Thenews.php";
+require_once "../model/thenews/ThenewsManager.php";
 
 // DB's connection
 try{

@@ -7,15 +7,31 @@ class Thenews
     private string $theUserLogin;
 
     // EXERCICE créez les autres attributs (noms des champs dans le table "thenews")
-
+    private int $idtheNews;
+    private string $theNewsTitle;
+    private string $theNewsText;
+    private string $theNewsDate;
+    private int $theUser_idtheUser;
 
     // EXERCICE créez le constructeur
+    public function __construct(array $datas){
+
+    }
 
 
     // EXERCICE créez l'hydratateur
-
+    private function hydrate(array $array){
+        foreach($array as $key => $value){
+            $methodSetters = "set".ucfirst($key);
+            if(method_exists($this,$methodSetters)){
+                $this->$methodSetters($value);
+            }
+        }
+    }
 
     // EXERCICE créez les getters et setters des attributs propre à cette table, n'oubliez pas de protéger les champs avec les setters !
+
+
 
 
     // Getters et Setters utiles pour theUserLogin
