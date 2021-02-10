@@ -32,6 +32,24 @@ class ThenewsManager
         return [];
     }
 
+    // Chargement d'une news par son ID
+    public function readOneNewsById(int $idnews):array{
+        $sql="SELECT n.idtheNews, n.theNewsTitle, n.theNewsText, n.theNewsDate, n.theUser_idtheUser, u.theUserLogin 
+        FROM thenews n
+        INNER JOIN theuser u 
+            ON u.idtheUser = n.theUser_idtheUser
+        WHERE n.idtheNews=? ;
+        ";
+        $request = $this->db->prepare($sql);
+        $request->execute([$idnews]);
+        // si on a un article
+        if($request->rowCount()){
+            return $request->fetch(PDO::FETCH_ASSOC);
+        }
+        // pas d'article
+        return [];
+    }
+
     // méthode qui coupe le texte en dehors des mots, on peut l'utiliser sans instancier cette classe (static)
     public static function cutTheText(string $text, int $nbChars): string{
         $cutText = substr($text,0,$nbChars);
