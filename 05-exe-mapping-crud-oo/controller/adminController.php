@@ -25,7 +25,17 @@ if(isset($_GET['create'])){
 if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
 
     // exercice's action
+    $idarticle = (int) $_GET['idarticle'];
+    $iduserAdmin = (int) $_SESSION['idtheUser'];
+    $recup = $newsManager->readOneNewsAdminById($idarticle,$iduserAdmin);
 
+    if(!empty($recup)){
+        $article = new Thenews($recup);
+    }else{
+        // la personne n'a pas le droit de voir cette article
+        TheuserManager::disconnectUser();
+        header("Location: ./"); exit;
+    }
 
     // form view
     require_once "../view/admin/articleAdminView.php";
