@@ -133,8 +133,38 @@ class ThenewsManager
         }
     }
 
+    // update article by his author
+
+    /**
+     * @param Thenews $news
+     * @param int $SessionIduser
+     * @return bool
+     */
+    function updateArticleAdmin(Thenews $news, int $SessionIduser){
+        if($news->getTheUser_idtheUser()!=$SessionIduser){
+            TheuserManager::disconnectUser();
+            header("Location: ./");
+            exit();
+        }else{
+            $sql = "UPDATE thenews SET theNewsTitle=?, theNewsText=?,theNewsDate=? WHERE idtheNews=?; ";
+            $prepare = $this->db->prepare($sql);
+            $prepare->bindValue(1,$news->getTheNewsTitle(),PDO::PARAM_STR);
+            $prepare->bindValue(2,$news->getTheNewsText(),PDO::PARAM_STR);
+            $prepare->bindValue(3,$news->getTheNewsDate(),PDO::PARAM_STR);
+            $prepare->bindValue(4,$news->getIdtheNews(),PDO::PARAM_INT);
+            return $prepare->execute();
+
+
+        }
+    }
+
     // Delete a news by his author
 
+    /**
+     * @param int $idnews
+     * @param int $SessionIduser
+     * @return bool
+     */
     public function deleteArticleAdmin(int $idnews, int $SessionIduser){
 
             $sql = "DELETE FROM thenews WHERE idtheNews=? AND theUser_idtheUser=? ";
