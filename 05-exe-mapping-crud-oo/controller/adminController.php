@@ -31,5 +31,15 @@ if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
     exit();
 }
 
+// Homepage with all articles by connected user
+$recup = $newsManager->readAllNewsByIdUser($_SESSION['idtheUser']);
+if(empty($recup)){
+    $message = "Pas encore d'article écrit par {$_SESSION['theUserLogin']}";
+}else{
+    foreach ($recup as $article){
+        $item[]= new Thenews($article);
+    }
+}
+
 // homepage admin view
 require_once "../view/admin/indexAdminView.php";
