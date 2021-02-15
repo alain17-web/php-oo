@@ -49,6 +49,7 @@ if(isset($_GET['idauteur'])&&ctype_digit($_GET['idauteur'])){
     // select author
     $iduser = (int) $_GET['idauteur'];
     $recup = $userManager->selectOneUserById($iduser);
+
     // no sql error
     if(is_array($recup)){
         // user exist
@@ -63,7 +64,15 @@ if(isset($_GET['idauteur'])&&ctype_digit($_GET['idauteur'])){
 
 
     // exercice's action
-
+    // select all articles from this author
+    $article = $newsManager->readAllNewsByIdUser($iduser);
+    if(empty($article)){
+        $message2 = "Cet auteur n'a pas écrit d'article";
+    }else{
+        foreach($article As $item){
+            $allNews[]= new Thenews($item);
+        }
+    }
     // view
     require_once "../view/public/auteurPublicView.php";
     exit();
