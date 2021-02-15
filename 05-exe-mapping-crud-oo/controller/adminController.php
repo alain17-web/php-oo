@@ -26,6 +26,7 @@ if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
 
     // exercice's action
 
+
     // form view
     require_once "../view/admin/articleAdminView.php";
     exit();
