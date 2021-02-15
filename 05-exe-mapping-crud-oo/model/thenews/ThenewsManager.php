@@ -89,7 +89,11 @@ class ThenewsManager
 
     // Chargement d'une news par son ID et l'id de l'utilsateur connecté
 
-
+    /**
+     * @param int $idnews
+     * @param int $SessionIduser
+     * @return array
+     */
     public function readOneNewsAdminById(int $idnews, int $SessionIduser):array{
         $sql="SELECT n.idtheNews, n.theNewsTitle, n.theNewsText, n.theNewsDate, n.theUser_idtheUser
         FROM thenews n
@@ -103,6 +107,30 @@ class ThenewsManager
         }
         // pas d'article
         return [];
+    }
+
+    // méthode qui insert un article si on a pas bidouillé l'id de l'utilisateur qui le poste
+
+    /**
+     * @param Thenews $news
+     * @param int $SessionIduser
+     * @return bool
+     */
+    function insertArticleAdmin(Thenews $news, int $SessionIduser){
+        if($news->getTheUser_idtheUser()!=$SessionIduser){
+            TheuserManager::disconnectUser();
+            header("Location: ./");
+            exit();
+        }else{
+            $sql = "INSERT INTO thenews (theNewsTitle,theNewsText,theUser_idtheUser) VALUES (?,?,?); ";
+            $prepare = $this->db->prepare($sql);
+            $prepare->bindValue(1,$news->getTheNewsTitle(),PDO::PARAM_STR);
+            $prepare->bindValue(2,$news->getTheNewsText(),PDO::PARAM_STR);
+            $prepare->bindValue(3,$news->getTheUser_idtheUser(),PDO::PARAM_INT);
+            return $prepare->execute();
+
+
+        }
     }
 
     // méthode qui coupe le texte en dehors des mots, on peut l'utiliser sans instancier cette classe (static)

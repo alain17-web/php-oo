@@ -15,7 +15,16 @@ if(isset($_GET['disconnect'])){
 if(isset($_GET['create'])){
 
     // exercice's action
-
+    if(isset($_POST['theNewsTitle'])){
+        $newsInstance = new Thenews($_POST);
+        $insert = $newsManager->insertArticleAdmin($newsInstance,$_SESSION['idtheUser']);
+        if($insert){
+            header("Location: ./");
+            exit();
+        }else{
+            $message = "Vos champs doivent être a un format valide";
+        }
+    }
     // form view
     require_once "../view/admin/createAdminView.php";
     exit();
