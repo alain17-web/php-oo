@@ -41,7 +41,7 @@ if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
     if(!empty($recup)){
         $article = new Thenews($recup);
     }else{
-        // la personne n'a pas le droit de voir cette article
+        // la personne n'a pas le droit de voir cet article
         TheuserManager::disconnectUser();
         header("Location: ./"); exit;
     }
@@ -50,6 +50,34 @@ if(isset($_GET['idarticle'])&&ctype_digit($_GET['idarticle'])){
     require_once "../view/admin/articleAdminView.php";
     exit();
 }
+
+// Delete Article by id and by author
+
+if(isset($_GET['delete'])&&ctype_digit($_GET['delete'])){
+    // real delete
+    if(isset($_GET['ok'])){
+        $delete = $newsManager->deleteArticleAdmin($_GET['delete'],$_SESSION['idtheUser']);
+        if($delete){
+            // la personne n'a pas le droit de supprimer cet article
+            TheuserManager::disconnectUser();
+            header("Location: ./"); exit;
+        }else{
+            echo "error";
+        }
+    }
+    $recup = $newsManager->readOneNewsAdminById($_GET['delete'],$_SESSION['idtheUser']);
+    if(!empty($recup)){
+        $article = new Thenews($recup);
+    }else{
+        // la personne n'a pas le droit de supprimer cet article
+        TheuserManager::disconnectUser();
+        header("Location: ./"); exit;
+    }
+
+    require_once "../view/admin/deleteAdminView.php";
+    exit;
+}
+
 
 // Homepage with all articles by connected user
 $recup = $newsManager->readAllNewsByIdUser($_SESSION['idtheUser']);

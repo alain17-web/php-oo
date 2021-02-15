@@ -133,6 +133,17 @@ class ThenewsManager
         }
     }
 
+    // Delete a news by his author
+
+    public function deleteArticleAdmin(int $idnews, int $SessionIduser){
+
+            $sql = "DELETE FROM thenews WHERE idtheNews=? AND theUser_idtheUser=? ";
+            $prepare = $this->db->prepare($sql);
+            return $prepare->execute([$idnews,$SessionIduser]);
+
+
+    }
+
     // méthode qui coupe le texte en dehors des mots, on peut l'utiliser sans instancier cette classe (static)
 
     /**
